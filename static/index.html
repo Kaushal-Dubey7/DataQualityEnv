@@ -48,7 +48,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* we handle scrolling in panels */
+            overflow-x: hidden; 
+            overflow-y: auto;
         }
 
         /* typography */
@@ -77,8 +78,9 @@
         .main-layout {
             display: flex;
             flex: 1;
-            height: calc(100vh - 64px - 40px); /* minus nav and collapsed log bar */
-            overflow: hidden;
+            flex-wrap: wrap;
+            min-height: calc(100vh - 64px - 40px);
+            padding-bottom: 40px; /* buffer for the log bar */
         }
 
         .panel-left {
