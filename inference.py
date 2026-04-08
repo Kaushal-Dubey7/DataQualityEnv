@@ -113,7 +113,11 @@ def run_task(task_id: str) -> dict:
     )
 
     # Reset environment
-    observation = _reset(task_id)
+    try:
+        observation = _reset(task_id)
+    except Exception as e:
+        print(f"  [ERROR] _reset request failed: {e}", flush=True)
+        return {"task_id": task_id, "final_score": 0.0, "steps_taken": 0, "passed": False}
     steps_taken = 0
     final_score = 0.0
     done = False
