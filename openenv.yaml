@@ -1,0 +1,43 @@
+name: data-quality-env
+version: "1.0.0"
+description: "Real-world data quality auditing environment for RL agents"
+author: "WeCreate Team"
+tags: [data-quality, auditing, real-world, tabular]
+
+api:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+
+tasks:
+  - id: null_hunter
+    difficulty: easy
+    max_steps: 15
+  - id: full_cleanup
+    difficulty: medium
+    max_steps: 25
+  - id: master_audit
+    difficulty: hard
+    max_steps: 40
+
+observation_space:
+  type: structured
+  fields:
+    - dataset_preview
+    - column_stats
+    - issues_remaining
+    - step_count
+    - task_id
+    - available_actions
+
+action_space:
+  type: discrete_structured
+  actions:
+    - fill_missing
+    - drop_duplicates
+    - fix_dtype
+    - remove_outliers
+    - normalize_format
+    - done
+
+reward_range: [0.0, 1.0]
