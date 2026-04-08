@@ -1,3 +1,14 @@
+---
+title: Data Quality Env
+emoji: 🧹
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+tags:
+  - openenv
+---
+
 # DataQualityEnv 🧹
 
 > **A production-ready OpenEnv RL environment for training AI agents to audit and fix messy datasets.**
